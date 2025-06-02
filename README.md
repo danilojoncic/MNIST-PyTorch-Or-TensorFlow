@@ -183,6 +183,11 @@ Both implementations achieved similar results  on the test set without any hyper
 - **PyTorch**: 91.99%
 - **TensorFlow**: 91.63%
 
+Bear in mind the following training considerations
+- **Number of Epochs** : 10
+- **Batch Size** : 64
+
+
 ## Conclusion
 
-Both PyTorch and TensorFlow are great. PyTorch offers more flexibility and control. TensorFlow provides higher-level abstractions. Based on previous experience using TensorFlow i would stick with using it instead of trying out PyTorch.
+Both PyTorch and TensorFlow are great. PyTorch offers more flexibility and control while TensorFlow provides higher-level abstractions. Based on previous experience using TensorFlow i would stick with using it instead of trying out PyTorch.
