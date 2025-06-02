@@ -15,20 +15,7 @@ Both models follow the same architecture:
 
 ## Code Structure Comparison
 
-### 1. Library Imports
-
-**PyTorch:**
-```python
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import torch.nn.functional as F
-from torch.utils.data import DataLoader
-import torchvision
-import torchvision.transforms as transforms
-```
-
-### 3. Data Loading & Preprocessing
+### 1. Data Loading & Preprocessing
 
 **PyTorch:**
 ```python
@@ -55,7 +42,7 @@ x_train = np.expand_dims(x_train, -1)
 y_train_categorical = keras.utils.to_categorical(y_train, 10)
 ```
 
-### 4. Model Definition
+### 2. Model Definition
 
 **PyTorch (Class-based):**
 ```python
@@ -90,7 +77,7 @@ def create_fashion_cnn():
 model = create_fashion_cnn()
 ```
 
-### 5. Model Compilation/Setup
+### 3. Model Compilation/Setup
 
 **PyTorch:**
 ```python
@@ -107,7 +94,7 @@ model.compile(
 )
 ```
 
-### 6. Training Loop
+### 4. Training Loop
 
 **PyTorch (Manual loop):**
 ```python
@@ -134,7 +121,7 @@ history = model.fit(
 )
 ```
 
-### 7. Model Evaluation
+### 5. Model Evaluation
 
 **PyTorch:**
 ```python
@@ -151,18 +138,6 @@ with torch.no_grad():
 predictions = model.predict(x_test)
 predicted_classes = np.argmax(predictions, axis=1)
 test_loss, test_accuracy = model.evaluate(x_test, y_test_categorical)
-```
-
-### 8. Model Saving
-
-**PyTorch:**
-```python
-torch.save(model.state_dict(), 'fashion_cnn_model.pth')
-```
-
-**TensorFlow:**
-```python
-model.save('fashion_cnn_model_tensorflow.h5')
 ```
 
 ## Key Differences
@@ -204,20 +179,10 @@ model.save('fashion_cnn_model_tensorflow.h5')
 
 ## Performance Considerations
 
-Both implementations should achieve similar performance since they use identical architectures. However:
-
-- **PyTorch**: More fine-grained control over memory usage and computation
-- **TensorFlow**: Better optimization for production deployment and serving
-- **GPU Utilization**: Both frameworks efficiently utilize CUDA when available
+Both implementations achieved similar results  on the test set without any hyperparameter tuning or special data set tricks/manipulations
+- **PyTorch**: 91.99%
+- **TensorFlow**: 91.63%
 
 ## Conclusion
 
-Both PyTorch and TensorFlow are excellent choices for deep learning projects. PyTorch offers more flexibility and control, making it ideal for research and custom implementations. TensorFlow provides higher-level abstractions and better production tools, making it suitable for deployment-focused projects.
-
-The choice between them often depends on:
-- Team expertise and preferences
-- Project requirements (research vs. production)
-- Ecosystem and community support
-- Integration with existing tools and workflows
-
-For learning purposes, both frameworks provide valuable insights into deep learning concepts, with PyTorch offering more visibility into the underlying mechanics and TensorFlow providing a more streamlined development experience.
+Both PyTorch and TensorFlow are great. PyTorch offers more flexibility and control. TensorFlow provides higher-level abstractions. Based on previous experience using TensorFlow i would stick with using it instead of trying out PyTorch.
